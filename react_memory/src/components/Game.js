@@ -1,8 +1,8 @@
 import React from 'react'
-import GameHeader from './components/GameHeader'
-import Piece from './components/Piece'
-import pieces from './pieces.json'
-import { Container, Row, Column } from './components/Grid'
+import GameHeader from '../components/GameHeader'
+import Piece from '../components/Piece'
+import pieces from '../pieces.json'
+import { Container, Row, Column } from '../components/Grid'
 
 class Game extends React.Component
 {
@@ -19,27 +19,38 @@ class Game extends React.Component
   }
   handleClick(i)
   {
-    const pieces = this.state.pieces.slice();
-    const prevClicked = pieces[i].isClicked;
+    const pcs = this.state.pieces.slice();
 
-    if (prevClicked)
+    if (!this.gameOver)
     {
-      this.setState(
+      if (pcs[i].isClicked)
       {
-        gameOver: true,
-        topScore: (this.score > this.topScore) ? this.score : this.topScore,
+        this.setState(
+        {
+          gameOver: true,
+          topScore: (this.score > this.topScore) ? this.score : this.topScore,
+        }
+        );
+      } else {
+        pcs[i].isClicked = true;
+        this.setState(
+        {
+          pieces: pcs,
+          score: this.score + 1,
+        }
+        );
       }
-      );
-    } else {
-      pieces[i].isClicked = true;
-      this.setState(
-      {
-        gameOver: false,
-        pieces: pieces,
-        score: this.score + 1,
-      }
-      );
     }
+  }
+  newGame()
+  {
+    this.setState(
+    {
+      gameOver: false,
+      score: 0,
+      pieces,
+    }
+    )
   }
   render()
   {
@@ -60,7 +71,13 @@ class Game extends React.Component
         />
         <div className="game-board">
           <Container>
-            <Row>
+            {this.state.pieces.map(piece => (
+              <Piece
+                id={piece.id}
+                image={piece.image}
+              />
+            ))}
+            {/* <Row>
               <Piece />
               <Piece />
               <Piece />
@@ -79,12 +96,12 @@ class Game extends React.Component
               <Piece />
               <Piece />
               <Piece />
-            </Row>
+            </Row> */}
           </Container>
-          <Board
+          {/* <Board
             pieces={current.pieces}
             onClick={(i) => this.handleClick(i)}
-         />
+         /> */}
         </div>
       </div>
     );
