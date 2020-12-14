@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "isClicked": false,
+    "image": "../assets/images/dinos-1953108__340.jpg"
+  },
+  {
+    "id": 1,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-1083924__340.jpg"
+  },
+  {
+    "id": 2,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-1680376__340.png"
+  },
+  {
+    "id": 3,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-3122799_1280.png"
+  },
+  {
+    "id": 4,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-3129391__340.png"
+  },
+  {
+    "id": 5,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-3542566_1280.jpg"
+  },
+  {
+    "id": 6,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-4478175_1280.jpg"
+  },
+  {
+    "id": 7,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-5218246_1280.jpg"
+  },
+  {
+    "id": 8,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-5218265_1280.jpg"
+  },
+  {
+    "id": 9,
+    "isClicked": false,
+    "image": "../assets/images/dinosaur-668613_1280.jpg"
+  },
+  {
+    "id": 10,
+    "isClicked": false,
+    "image": "../assets/images/stegosaurus-3129447__340.png"
+  },
+  {
+    "id": 11,
+    "isClicked": false,
+    "image": "../assets/images/brachiosaurus-5674507_1280.png"
+  }
+]
