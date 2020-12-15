@@ -66,14 +66,15 @@ class Game extends React.Component
       <div className="game">
         <GameHeader
           status={status}
-          score={this.score}
-          topScore={this.topScore}
+          score={this.state.score}
+          topScore={this.state.topScore}
         />
         <div className="game-board">
           <Container>
             {this.state.pieces.map(piece => (
               <Piece
                 id={piece.id}
+                key={piece.id}
                 image={piece.image}
               />
             ))}
