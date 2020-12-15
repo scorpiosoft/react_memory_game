@@ -37,7 +37,7 @@ class Game extends React.Component
         this.setState(
         {
           pieces: pcs,
-          score: this.score + 1,
+          score: this.state.score + 1,
         }
         );
       }

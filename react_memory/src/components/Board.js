@@ -2,12 +2,24 @@ import React from 'react'
 import Piece from '../components/Piece'
 import { Row, Col } from '../components/Grid'
 
+// Fisher–Yates shuffle
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+
+    // swap elements array[i] and array[j] using destructuring
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 const Board = (props) =>
 {
     const { pieces, onClick } = props
+    let rndPcs = pieces.slice();
+    shuffle(rndPcs);
     return (
     <div>
-            {pieces.map(piece => (
+            {rndPcs.map(piece => (
               <Piece
                 id={piece.id}
                 key={piece.id}
