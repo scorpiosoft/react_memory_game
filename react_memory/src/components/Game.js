@@ -2,7 +2,7 @@ import React from 'react'
 import GameHeader from '../components/GameHeader'
 import Piece from '../components/Piece'
 import pieces from '../pieces.json'
-import { Container, Row, Column } from '../components/Grid'
+import { Container } from '../components/Grid'
 
 class Game extends React.Component
 {
