@@ -1,5 +1,6 @@
 import React from 'react'
 import GameHeader from '../components/GameHeader'
+import Board from '../components/Board'
 import Piece from '../components/Piece'
 import pieces from '../pieces.json'
 import { Container } from '../components/Grid'
@@ -41,6 +42,7 @@ class Game extends React.Component
         );
       }
     }
+    console.log(this.state)
   }
   newGame()
   {
@@ -50,7 +52,7 @@ class Game extends React.Component
       score: 0,
       pieces,
     }
-    )
+    );
   }
   render()
   {
@@ -71,38 +73,11 @@ class Game extends React.Component
         />
         <div className="game-board">
           <Container>
-            {this.state.pieces.map(piece => (
-              <Piece
-                id={piece.id}
-                key={piece.id}
-                image={piece.image}
-              />
-            ))}
-            {/* <Row>
-              <Piece />
-              <Piece />
-              <Piece />
-            </Row>
-            <Row>
-              <Piece />
-              <Piece />
-              <Piece />
-            </Row>
-            <Row>
-              <Piece />
-              <Piece />
-              <Piece />
-            </Row>
-            <Row>
-              <Piece />
-              <Piece />
-              <Piece />
-            </Row> */}
+            <Board
+              pieces={this.state.pieces}
+              onClick={(i) => this.handleClick(i)}
+            />
           </Container>
-          {/* <Board
-            pieces={current.pieces}
-            onClick={(i) => this.handleClick(i)}
-         /> */}
         </div>
       </div>
     );
