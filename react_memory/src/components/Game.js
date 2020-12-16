@@ -72,7 +72,7 @@ class Game extends React.Component
           topScore={this.state.topScore}
         />
         <div className="game-board">
-          <Container>
+          <Container fluid={true}>
             <Board
               pieces={this.state.pieces}
               onClick={(i) => this.handleClick(i)}
