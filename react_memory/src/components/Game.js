@@ -1,9 +1,7 @@
 import React from 'react'
 import GameHeader from '../components/GameHeader'
 import Board from '../components/Board'
-import Piece from '../components/Piece'
 import pieces from '../pieces.json'
-import { Container } from '../components/Grid'
 
 class Game extends React.Component
 {
@@ -22,14 +20,14 @@ class Game extends React.Component
   {
     const pcs = this.state.pieces.slice();
 
-    if (!this.gameOver)
+    if (!this.state.gameOver)
     {
       if (pcs[i].isClicked)
       {
         this.setState(
         {
           gameOver: true,
-          topScore: (this.score > this.topScore) ? this.score : this.topScore,
+          topScore: (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore,
         }
         );
       } else {
@@ -71,14 +69,10 @@ class Game extends React.Component
           score={this.state.score}
           topScore={this.state.topScore}
         />
-        <div className="game-board">
-          <Container fluid={true}>
-            <Board
-              pieces={this.state.pieces}
-              onClick={(i) => this.handleClick(i)}
-            />
-          </Container>
-        </div>
+        <Board
+          pieces={this.state.pieces}
+          onClick={(i) => this.handleClick(i)}
+        />
       </div>
     );
   }

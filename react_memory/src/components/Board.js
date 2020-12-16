@@ -1,6 +1,6 @@
 import React from 'react'
 import Piece from '../components/Piece'
-import { Row, Col } from '../components/Grid'
+import { Container, Row, Col } from '../components/Grid'
 
 // Fisher–Yates shuffle
 function shuffle(array)
@@ -29,12 +29,12 @@ const Board = (props) =>
   const row4 = rndPcs.filter(p => (p.index >= 9));
   return (
     <div>
+    <Container fluid={true}>
       <Row fluid={true} classes={'justify-content-md-center'}>
         {row1.map(piece => (
-          <Col >
+          <Col key={piece.id}>
             <Piece
               id={piece.id}
-              key={piece.id}
               image={piece.image}
               onClick={() => onClick(piece.id)}
             />
@@ -43,10 +43,9 @@ const Board = (props) =>
       </Row>
       <Row fluid={true} classes={'justify-content-md-center'}>
         {row2.map(piece => (
-          <Col >
+          <Col key={piece.id}>
             <Piece
               id={piece.id}
-              key={piece.id}
               image={piece.image}
               onClick={() => onClick(piece.id)}
             />
@@ -55,10 +54,9 @@ const Board = (props) =>
       </Row>
       <Row fluid={true} classes={'justify-content-md-center'}>
         {row3.map(piece => (
-          <Col >
+          <Col key={piece.id}>
             <Piece
               id={piece.id}
-              key={piece.id}
               image={piece.image}
               onClick={() => onClick(piece.id)}
             />
@@ -67,16 +65,16 @@ const Board = (props) =>
       </Row>
       <Row fluid={true} classes={'justify-content-md-center'}>
         {row4.map(piece => (
-          <Col >
+          <Col key={piece.id}>
             <Piece
               id={piece.id}
-              key={piece.id}
               image={piece.image}
               onClick={() => onClick(piece.id)}
             />
          </Col>
         ))}
       </Row>
+    </Container>
     </div>
   )
 }
