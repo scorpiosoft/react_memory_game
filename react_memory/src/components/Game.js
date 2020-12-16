@@ -18,37 +18,38 @@ class Game extends React.Component
   }
   handleClick(i)
   {
-    const pcs = this.state.pieces.slice();
-
-    if (!this.state.gameOver)
+    if (this.state.gameOver === true)
     {
-      if (pcs[i].isClicked)
+      this.newGame();
+    }
+    const pcs = this.state.pieces.slice();
+    if (pcs[i].isClicked)
+    {
+      this.setState(
       {
-        this.setState(
-        {
-          gameOver: true,
-          topScore: (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore,
-        }
-        );
-      } else {
-        pcs[i].isClicked = true;
-        this.setState(
-        {
-          pieces: pcs,
-          score: this.state.score + 1,
-        }
-        );
+        gameOver: true,
+        topScore: (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore,
       }
+      );
+    } else {
+      pcs[i].isClicked = true;
+      this.setState(
+      {
+        pieces: pcs,
+        score: this.state.score + 1,
+      }
+      );
     }
     console.log(this.state)
   }
   newGame()
   {
+    const pcs = this.state.pieces.forEach(p => p.isClicked = false);
     this.setState(
     {
       gameOver: false,
       score: 0,
-      pieces,
+      pieces: pcs,
     }
     );
   }
@@ -77,5 +78,4 @@ class Game extends React.Component
     );
   }
 }
-
 export default Game;

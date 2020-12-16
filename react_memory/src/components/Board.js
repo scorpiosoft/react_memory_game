@@ -28,7 +28,7 @@ const Board = (props) =>
   const row3 = rndPcs.filter(p => (p.index >= 6 && p.index < 9));
   const row4 = rndPcs.filter(p => (p.index >= 9));
   return (
-    <div>
+    <div className='board'>
     <Container>
       <Row classes={'justify-content-md-center'}>
         {row1.map(piece => (

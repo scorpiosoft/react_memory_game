@@ -15,6 +15,11 @@ const GameHeader = props => (
         <h2 className='right'>Score: {props.score.toString()} | Best: {props.topScore.toString()}</h2>
       </Col>
     </Row>
+    <Row classes='justify-content-md-center'>
+      <Col>
+        <h2>Click on an image to play</h2>
+      </Col>
+    </Row>
   </Container>
   </header>
 );
