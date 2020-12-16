@@ -29,10 +29,10 @@ const Board = (props) =>
   const row4 = rndPcs.filter(p => (p.index >= 9));
   return (
     <div>
-    <Container fluid={true}>
-      <Row fluid={true} classes={'justify-content-md-center'}>
+    <Container>
+      <Row classes={'justify-content-md-center'}>
         {row1.map(piece => (
-          <Col key={piece.id}>
+          <Col size='md-auto' key={piece.id}>
             <Piece
               id={piece.id}
               image={piece.image}
@@ -41,9 +41,9 @@ const Board = (props) =>
          </Col>
         ))}
       </Row>
-      <Row fluid={true} classes={'justify-content-md-center'}>
+      <Row classes={'justify-content-md-center'}>
         {row2.map(piece => (
-          <Col key={piece.id}>
+          <Col size='md-auto' key={piece.id}>
             <Piece
               id={piece.id}
               image={piece.image}
@@ -52,9 +52,9 @@ const Board = (props) =>
          </Col>
         ))}
       </Row>
-      <Row fluid={true} classes={'justify-content-md-center'}>
+      <Row classes={'justify-content-md-center'}>
         {row3.map(piece => (
-          <Col key={piece.id}>
+          <Col size='md-auto' key={piece.id}>
             <Piece
               id={piece.id}
               image={piece.image}
@@ -63,9 +63,9 @@ const Board = (props) =>
          </Col>
         ))}
       </Row>
-      <Row fluid={true} classes={'justify-content-md-center'}>
+      <Row classes={'justify-content-md-center'}>
         {row4.map(piece => (
-          <Col key={piece.id}>
+          <Col size='md-auto' key={piece.id}>
             <Piece
               id={piece.id}
               image={piece.image}
