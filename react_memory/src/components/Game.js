@@ -13,35 +13,49 @@ class Game extends React.Component
       pieces,
       score: 0,
       topScore: 0,
-      gameOver: false,
+      winLose: 0, // -1:lose, 0:alive, 1:win
     }
   }
   handleClick(i)
   {
     const pcs = this.state.pieces.slice();
-    if (!this.state.gameOver)
-    if (pcs[i].isClicked)
+    if (this.state.winLose !== 0)
     {
-      this.setState(
-      {
-        gameOver: true,
-        topScore: (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore,
-      }
-      );
+      this.newGame();
     } else {
-      pcs[i].isClicked = true;
-      this.setState(
+      if (pcs[i].isClicked)
       {
-        pieces: pcs,
-        score: this.state.score + 1,
+        this.setState(
+        {
+          winLose: -1,
+          topScore: (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore,
+        }
+        );
+      } else {
+        const score = this.state.score + 1;
+        const wl = this.state.score === 12 ? 1 : 0;
+        pcs[i].isClicked = true;
+        this.setState(
+        {
+          pieces: pcs,
+          score: score,
+          winLose: wl,
+        }
+        );
       }
-      );
+      console.log(this.state);
     }
-    console.log(this.state);
   }
   newGame()
   {
-    const pcs = this.state.pieces.forEach(p => p.isClicked = false);
+    // const pcs = this.state.pieces.forEach(p => p.isClicked = false);
+    let pcs = Array(12).fill(null);
+    for (let i = 0; i < 12; i++)
+    {
+      pcs[i] = this.state.pieces[i];
+      pcs[i].isClicked = false;
+    }
+    console.log(`pcs: ${pcs}`);
     this.setState(
     {
       gameOver: false,
@@ -53,12 +67,17 @@ class Game extends React.Component
   }
   render()
   {
-    const gameOver = this.state.gameOver;
+    const winLose = this.state.winLose;
     let status;
-    if (gameOver)
+    if (winLose === -1)
     {
       status = 'Game Over!';
-    } else {
+    } else
+    if (winLose === 1)
+    {
+      status = 'You Win!';
+    } else
+    {
       status = 'Click on a new dino';
     }
     return (
