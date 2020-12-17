@@ -30,7 +30,7 @@ const Board = (props) =>
   return (
     <div className='board'>
     <Container>
-      <Row classes={'justify-content-md-center'}>
+      <Row classes={'justify-content-center align-items-center'}>
         {row1.map(piece => (
           <Col size='md-auto' key={piece.id}>
             <Piece
@@ -41,7 +41,7 @@ const Board = (props) =>
          </Col>
         ))}
       </Row>
-      <Row classes={'justify-content-md-center'}>
+      <Row classes={'justify-content-center align-items-center'}>
         {row2.map(piece => (
           <Col size='md-auto' key={piece.id}>
             <Piece
@@ -52,7 +52,7 @@ const Board = (props) =>
          </Col>
         ))}
       </Row>
-      <Row classes={'justify-content-md-center'}>
+      <Row classes={'justify-content-center align-items-center'}>
         {row3.map(piece => (
           <Col size='md-auto' key={piece.id}>
             <Piece
@@ -63,7 +63,7 @@ const Board = (props) =>
          </Col>
         ))}
       </Row>
-      <Row classes={'justify-content-md-center'}>
+      <Row classes={'justify-content-center align-items-center'}>
         {row4.map(piece => (
           <Col size='md-auto' key={piece.id}>
             <Piece

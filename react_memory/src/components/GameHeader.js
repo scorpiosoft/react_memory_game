@@ -17,7 +17,7 @@ const GameHeader = props => (
     </Row>
     <Row >
       <Col size='12'>
-        <h4 className='center'>Click on an image to play</h4>
+        <h4 className='center'>Click on each dino without clicking the same dino twice.  Click again to start a new game.</h4>
       </Col>
     </Row>
   </Container>

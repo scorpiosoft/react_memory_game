@@ -18,11 +18,8 @@ class Game extends React.Component
   }
   handleClick(i)
   {
-    if (this.state.gameOver === true)
-    {
-      this.newGame();
-    }
     const pcs = this.state.pieces.slice();
+    if (!this.state.gameOver)
     if (pcs[i].isClicked)
     {
       this.setState(
@@ -40,7 +37,7 @@ class Game extends React.Component
       }
       );
     }
-    console.log(this.state)
+    console.log(this.state);
   }
   newGame()
   {
@@ -52,6 +49,7 @@ class Game extends React.Component
       pieces: pcs,
     }
     );
+    console.log(`newGame, best: ${this.state.topScore}`);
   }
   render()
   {
@@ -61,7 +59,7 @@ class Game extends React.Component
     {
       status = 'Game Over!';
     } else {
-      status = ' ';
+      status = 'Click on a new dino';
     }
     return (
       <div className="game">
