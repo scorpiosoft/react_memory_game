@@ -16,8 +16,7 @@ A memory game using React.
 
 ### Installing
 
-1. Clone this repo down to your local machine and cd into it
-2. `cd react_memory`
+1. Clone this repo down to your local machine
 2. `npm install`
 
 ### Running
