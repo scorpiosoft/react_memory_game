@@ -29,21 +29,22 @@ class Game extends React.Component
         {
           winLose: -1,
           topScore: (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore,
-        }
+        }, () => {console.log(this.state); console.log('Game Over!');}
         );
       } else {
         const score = this.state.score + 1;
-        const wl = this.state.score === 12 ? 1 : 0;
+        const wl = (score === 12) ? 1 : 0;
+        const best = (wl === 1) ? score : this.state.topScore;
         pcs[i].isClicked = true;
         this.setState(
         {
           pieces: pcs,
           score: score,
           winLose: wl,
-        }
+          topScore: best,
+        }, () => {console.log(this.state); if(wl===1){console.log('You Win!')}}
         );
       }
-      console.log(this.state);
     }
   }
   newGame()
@@ -58,12 +59,11 @@ class Game extends React.Component
     console.log(`pcs: ${pcs}`);
     this.setState(
     {
-      gameOver: false,
+      winLose: 0,
       score: 0,
       pieces: pcs,
-    }
+    }, () => {console.log('newGame'); console.log(this.state);}
     );
-    console.log(`newGame, best: ${this.state.topScore}`);
   }
   render()
   {
