@@ -13,15 +13,16 @@ A memory game using React.
 
 - [Node.js](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com)
+- [yarn](https://www.npmjs.com/package/yarn)
 
 ### Installing
 
 1. Clone this repo down to your local machine
-2. `npm install`
+2. `yarn install`
 
 ### Running
 
-1. `npm start`
+1. `yarn start`
 
 ## Author
 
